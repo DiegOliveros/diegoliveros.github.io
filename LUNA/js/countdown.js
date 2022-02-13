@@ -71,9 +71,6 @@ const countdown = (dateTo, element) => {
  
     }, 1000);
 };
-
-
-
 //===
 // VARIABLES
 //===
