@@ -54,6 +54,14 @@
                 setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
             });
         </script>
+        <style>
+            #myDIV {
+              width: 100%;
+              padding:0px 0;
+              text-align: center;
+              display: none;
+            }
+        </style>
     </head>
 
     <body id="fondo">
@@ -101,7 +109,12 @@
             <h3>Descubre los Misterios de Ser</h3>
             <h2>DIOSA LUNA</h2>
 
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <button onclick="myFunction()" style="background-color:yellow;font-size: 35px;">!Quiero Registrarme!</button>
+
+<div id="myDIV">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+
 
             <p> ¿Cansada de sentir frustración, dolor, </p>
             <p> ansiedad, <b>miedo</b>, y no saber cómo gestionarlo?</p>
@@ -186,8 +199,11 @@
             A Descubrir los Misterios de Ser </p>
         <h1>Diosa Luna</h1>
         <h1>!Quiero mi entrada GRATUITA¡</h1>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <button onclick="myFunction()" style="background-color:yellow;font-size: 35px;">!Quiero mi entrada GRATUITA¡</button>
 
+        <div id="myDIV">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
 
 
 
@@ -215,12 +231,24 @@
 
         <h1>!Quiero Registrarme! </h1>
 
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <button onclick="myFunction()" style="background-color:yellow;font-size: 35px;">!Quiero Registrarme!</button>
 
+        <div id="myDIV">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
 
         <p> Si llegó a ti, es porque ya estás preparada </p>
         </div>
-
+        <script>
+            function myFunction() {
+              var x = document.getElementById("myDIV");
+              if (x.style.display === "block") {
+                x.style.display = "none";
+              } else {
+                x.style.display = "block";
+              }
+            }
+            </script>
     </body>
 
     </html>
