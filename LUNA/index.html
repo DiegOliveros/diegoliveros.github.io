@@ -61,6 +61,18 @@
               text-align: center;
               display: none;
             }
+            #myDIV2 {
+              width: 100%;
+              padding:0px 0;
+              text-align: center;
+              display: none;
+            }
+            #myDIV3 {
+              width: 100%;
+              padding:0px 0;
+              text-align: center;
+              display: none;
+            }
         </style>
     </head>
 
@@ -201,12 +213,9 @@
         <h1>!Quiero mi entrada GRATUITA¡</h1>
         <button onclick="myFunction()" style="background-color:yellow;font-size: 35px;">!Quiero mi entrada GRATUITA¡</button>
 
-        <div id="myDIV">
+        <div id="myDIV2">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
-
-
-
 
         <p> Todas las Mujeres necesitamos comprender nuestro cuerpo
             Y unificar esa información para entender la relación directa que hay con la Madre Naturaleza y el mundo que
@@ -233,7 +242,7 @@
 
         <button onclick="myFunction()" style="background-color:yellow;font-size: 35px;">!Quiero Registrarme!</button>
 
-        <div id="myDIV">
+        <div id="myDIV3">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
 
@@ -246,6 +255,18 @@
                 x.style.display = "none";
               } else {
                 x.style.display = "block";
+              }
+              var y = document.getElementById("myDIV2");
+              if (y.style.display === "block") {
+                y.style.display = "none";
+              } else {
+                y.style.display = "block";
+              }
+              var z = document.getElementById("myDIV3");
+              if (z.style.display === "block") {
+                z.style.display = "none";
+              } else {
+                z.style.display = "block";
               }
             }
             </script>
