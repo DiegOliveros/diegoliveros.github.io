@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!–– todos los derechos resevados @scalapp Diego Iván oliveros Acosta ––>
+
+    <head>
+        <script src="js/countdown.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+
+                //===
+                // VARIABLES
+                //===
+                const DATE_TARGET = new Date('04/02/2022 02:00 PM');
+                // DOM for render
+                const SPAN_DAYS = document.querySelector('span#days');
+                const SPAN_HOURS = document.querySelector('span#hours');
+                const SPAN_MINUTES = document.querySelector('span#minutes');
+                const SPAN_SECONDS = document.querySelector('span#seconds');
+                // Milliseconds for the calculations
+                const MILLISECONDS_OF_A_SECOND = 1000;
+                const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
+                const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
+                const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24
+
+                //===
+                // FUNCTIONS
+                //===
+
+                /**
+                * Method that updates the countdown and the sample
+                */
+                function updateCountdown() {
+                    // Calcs
+                    const NOW = new Date()
+                    const DURATION = DATE_TARGET - NOW;
+                    const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
+                    const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
+                    const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
+                    const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
+                    // Thanks Pablo Monteserín (https://pablomonteserin.com/cuenta-regresiva/)
+
+                    // Render
+                    SPAN_DAYS.textContent = REMAINING_DAYS;
+                    SPAN_HOURS.textContent = REMAINING_HOURS;
+                    SPAN_MINUTES.textContent = REMAINING_MINUTES;
+                    SPAN_SECONDS.textContent = REMAINING_SECONDS;
+                }
+
+                //===
+                // INIT
+                //===
+                updateCountdown();
+                // Refresh every second
+                setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+            });
+        </script>
+        <style>
+            #myDIV {
+              width: 100%;
+              padding:0px 0;
+              text-align: center;
+              display: none;
+            }
+            #myDIV2 {
+              width: 100%;
+              padding:0px 0;
+              text-align: center;
+              display: none;
+            }
+            #myDIV3 {
+              width: 100%;
+              padding:0px 0;
+              text-align: center;
+              display: none;
+            }
+        </style>
+    </head>
+
+    <body id="fondo">
+
+        <div class="tituloC"> <br><b>COMIENZA EN:</b>
+            <!-- Contador regresivo -->
+            <section id="contador">
+                <p>
+                <table class="tabla">
+                    <tr>
+
+                        <td><span id="days"></span></td>
+                        <td><span id="hours"></span></td>
+                        <td><span id="minutes"></span></td>
+                        <td><span id="seconds"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Días&nbsp</td>
+                        <td>Horas&nbsp</td>
+                        <td>Minutos&nbsp</td>
+                        <td>Segundos</td>
+                    </tr>
+                </table>
+                <br>
+                </p>
+            </section>
+            <!-- Fin contador regresivo -->
+        </div>
+
+        <div>@AstroKura</div>
+        <div><img class="luna" src="img/lina.png">
+
+            <h1 class="titulo1">¡YO SOY!<br>Diosa Luna</h1>
+        </div>
+        <div>
+            <h3>¡Felicidades!</h3>
+                <h4>Ya casi estás Dentro! </h4>
+     
+                <p>Revisa por favor el correo que te </p>
+                <p> Enviaremos en el transcurso del día  </p>
+                <p>(mira en tu carpeta de Spam) </p>
+     
+            <h3>¡TENEMOS UN REGALO PARA TI!</h3>
+            <br>
+
+            Recibe información exclusiva
+            a través de nuestro grupo de WhatsApp
+            
+
+            <button onclick='window.location.href="https://chat.whatsapp.com/H8XYBDOiL5OCvjCZqlDSGd"'>!Quiero Registrarme!</button>
+
+<div id="myDIV">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+
+<br>   <br>
+            <p> ¿Cansada de sentir frustración, dolor, ansiedad, <b>miedo</b>, y no saber cómo gestionarlo?</p>
+            <p> ¿Tus relaciones de <b>pareja</b> no prosperan?</p>
+            <p> ¿El vínculo con tus padres se encuentra
+                <b>fracturado</b> o lastimado?
+            </p>
+
+            <p>¿El dinero no fluye, hay <b>escases</b> y
+                falta de abundancia?
+            </p>
+
+            <p>
+                Necesitas ponerles <b>límites</b> a las personas que te rodean, pero ¿no sabes cómo?
+            </p>
+
+            <p>
+                No entiendes tus cambios de humor, y sientes que te estás volviendo Loca?
+            </p>
+            <br>
+            <div id="c">
+                <br>
+            <h2>
+                ¡Tranquila!
+            </h2>
+            <p>
+                ¡NO estás Loca!
+            <h2>Estás Herida</h2>
+            Juntas descubriremos el poder de
+            <h1>Sanar</h1>
+            <br>
+            </p>
+            </div>
+           
+            <p>
+                Viajaremos juntas hacia el poder de tus Ciclos</p>
+            <p> Conocerás y Desarrollarás la Sabiduría de tu cuerpo</p>
+            </p>
+            <p>Experimentarás todas tus dimensiones </p>
+            <p>Aprenderás a ser una sola con tus ritmos
+                Y expandirás tu verdadero potencial de ser una</p>
+            <h2>Diosa Luna</h2>
+            </p>
+        </div>
+
+        <ul id="lista">
+            <li> Sin costo </li>
+            <li> 100% online </li>
+            <li> Martesclass en vivo </li>
+            <li> Sin experiencia previa </li>
+            <li> Certificado de asistencia </li>
+        </ul>
+
+        <p>
+        <h2>Temas</h2>
+        </p>
+        </div>
+        <ul id="lista">
+            <li> Traumas y enfermedades</li>
+            <li> Autosanación </li>
+            <li> Sanación de niña interior</li>
+            <li> Activación uterina</li>
+            <li> Matrimonio interior</li>
+            <li> Reconexión con el placer</li>
+            <li> Limpieza de memorias ancestrales</li>
+            <li> Relación con la abundancia</li>
+        </ul>
+        <h2>¿CÓMO PARTICIPAR?</h2>
+
+        <p> Completa el formulario con tus datos,
+            No importa dónde vivas, recibirás TODA
+            La información por correo para comenzar
+            A Descubrir los Misterios de Ser </p>
+        <h1>Diosa Luna</h1>
+        <h1>!Quiero mi entrada GRATUITA¡</h1>
+        <button onclick="myFunction()" style="background-color:#BB37AB;font-size: 35px;">!Quiero mi entrada GRATUITA¡</button>
+
+        <div id="myDIV2">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <br>
+        </div>
+    <div><br></div>
+        <div id="c">
+            <br>
+        <p> Todas las Mujeres necesitamos comprender nuestro cuerpo
+            Y unificar esa información para entender la relación directa que hay con la Madre Naturaleza y el mundo que
+            nos rodea. </p>
+
+        <p> El autoconocimiento nos ofrece claridad espiritual, autonomía y empoderamiento para sanar nuestras heridas y
+            comenzar a manifestar y encarnar la mujer que soñamos ser
+
+        <p> En esta MasterClass despertarás tu Diosa Luna,
+            activarás la magia que habita en ti
+            y llevarás a la práctica todo este conocimiento
+            para usarlo a tu favor </p>
+
+        <p> Comprenderás cuán inteligente es el Universo,
+            Y la importancia de la unión de nuestros 4 cuerpos en
+            El mundo actual, y así desarrollar nuestro verdadero potencial </p>
+            <br>
+        </div>
+        <p> Regresa a tus raíces
+            Despierta la <b>Diosa Luna</b> que
+            Habita en ti, y vuelve a ser
+            Tu propia (Vitamina o Medicina, aún no lo decido) </p>
+
+        <h1>!Quiero Registrarme! </h1>
+
+        <button onclick="myFunction()" style="background-color:#BB37AB;font-size: 35px;">!Quiero Registrarme!</button>
+
+        <div id="myDIV3">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfgeuVOF9hhSTtPSjv519sarCf8iRLqYIZCg3paZskVbdmUDw/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+
+        <p> Si llegó a ti, es porque ya estás preparada </p>
+        </div>
+        <script>
+            function myFunction() {
+              var x = document.getElementById("myDIV");
+              if (x.style.display === "block") {
+                x.style.display = "none";
+              } else {
+                x.style.display = "block";
+              }
+              var y = document.getElementById("myDIV2");
+              if (y.style.display === "block") {
+                y.style.display = "none";
+              } else {
+                y.style.display = "block";
+              }
+              var z = document.getElementById("myDIV3");
+              if (z.style.display === "block") {
+                z.style.display = "none";
+              } else {
+                z.style.display = "block";
+              }
+            }
+            </script>
+    </body>
+
+    </html>
