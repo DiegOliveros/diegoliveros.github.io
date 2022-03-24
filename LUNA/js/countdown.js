@@ -74,7 +74,7 @@ const countdown = (dateTo, element) => {
 //===
 // VARIABLES
 //===
-const DATE_TARGET = new Date('04/04/2020 0:01 AM');
+const DATE_TARGET = new Date('August 19, 2022 15:00:00');
 // DOM for render
 const SPAN_DAYS = document.querySelector('span#days');
 const SPAN_HOURS = document.querySelector('span#hours');
@@ -95,7 +95,7 @@ const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24
  */
 function updateCountdown() {
     // Calcs
-    const NOW = new Date()
+    const NOW = new Date();
     const DURATION = DATE_TARGET - NOW;
     const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
     const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);

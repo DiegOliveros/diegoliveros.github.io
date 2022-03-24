@@ -109,7 +109,7 @@ table {
 }
 
 ul{
-    list-style-type: circle;
+    
     text-align: center;
     padding-right: 35%;
     padding-left: 35%;
@@ -121,4 +121,7 @@ ul{
     text-align: center;
     margin: 0 auto;
 
+}
+#c{
+    background-color:#BB37AB;
 }
