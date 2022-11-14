@@ -17,7 +17,7 @@
 
 .banner { 
     position: relative; 
-    height: 100vh;
+    height: 50%;
     width: 100%;
     display: flow-root;
     align-items: center;
