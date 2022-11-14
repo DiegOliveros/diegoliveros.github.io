@@ -22,7 +22,7 @@
     display: flow-root;
     align-items: center;
     justify-content: center;
-    background-image: url('/scalapp/image/Picture6.png');
+    background-image: url('/SCALAPP/image/Picture6.png');
     background-size: cover;
 }
     .banner::before {
