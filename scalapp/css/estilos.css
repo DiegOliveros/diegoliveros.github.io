@@ -35,21 +35,21 @@
       background-color: rgba(235, 235, 235, 0.45);
     }
 
-.historia p{
+.banner p{
         position: relative;
         color: #080808;  
         font-size: 1rem;
         line-height: 0.9;
         text-align: center;
       }
-.historia h2{
+.banner h2{
         position: relative;
         color: #080808;         
         line-height: 2;
         text-align: center;
       }
 
-.historia { 
+.EXPLORA { 
     position: relative; 
     height: 50%;
     width: 100%;
@@ -59,7 +59,7 @@
     background-image: url('https://diegoliveros.github.io/SCALAPP/image/Picture3.png');
     background-size: cover;
 }
-    .historia::before {
+    .EXPLORA::before {
       content: "";
       position: absolute;
       top: 0px;
@@ -69,14 +69,14 @@
       background-color: rgba(235, 235, 235, 0.45);
     }
 
-.banner p{
+.EXPLORA p{
         position: relative;
         color: #080808;  
         font-size: 1rem;
         line-height: 0.9;
         text-align: center;
       }
-.banner h2{
+.EXPLORA h2{
         position: relative;
         color: #080808;         
         line-height: 2;
