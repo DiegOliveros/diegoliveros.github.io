@@ -93,7 +93,7 @@
 }
 .historia a{
   color:#dfdfdf;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .cardleft {
   height: auto;
