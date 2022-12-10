@@ -83,7 +83,7 @@
         text-align: center;
       }
       
-.historia {
+.intermedio {
   background-color: #1F2527;
   color:aliceblue;
   top: 0px;
@@ -91,7 +91,7 @@
   bottom: 0px; 
   background-size: cover;
 }
-.historia a{
+.intermedio a{
   color:#dfdfdf;
   text-decoration: underline;
   height: max-content;
