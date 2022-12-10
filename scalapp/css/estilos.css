@@ -86,12 +86,16 @@
 .historia {
   background-color: #1F2527;
   color:aliceblue;
+  
+}
+.cardleft {
   width:10%;
   height:10%;
   text-align: justify;
-}
-.cardleft {
   float:left;
 }
 .cardright {
+  width:10%;
+  height:10%;
+  text-align: justify;
 float:right;}
