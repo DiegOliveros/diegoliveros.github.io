@@ -99,7 +99,7 @@ align-items: center;
 
 
 ul, ol{
-  list-style: none;    <!-- *****sin puntos***** -->
+  list-style: none;  /*  <!-- *****sin puntos***** -->*/
 
 }
 .nav li a{
@@ -119,7 +119,7 @@ ul, ol{
 .nav li ul{
 display: none;
 position: absolute;
-min-width: 140px:
+min-width: 140px;
 }
 .nav li:hover>ul{
   display:block;
@@ -127,7 +127,7 @@ min-width: 140px:
 .nav li ul li {
   position: relative;
 }.nav li ul li ul{
-  right: -140px
+  right: -140px;
   top:0px;
 }
 

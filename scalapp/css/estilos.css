@@ -51,6 +51,7 @@
 
 .EXPLORA { 
     position: relative; 
+    color: #080808; 
     height: 50%;
     width: 100%;
     display: flow-root;
