@@ -88,8 +88,11 @@
   color:aliceblue;
   top: 0px;
   right: 0px;
-  bottom: 0px;
-  
+  bottom: 0px; 
+}
+.historia a{
+  color:#dfdfdf;
+  text-decoration: none;
 }
 .cardleft {
   height: auto;
