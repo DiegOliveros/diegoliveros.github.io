@@ -89,13 +89,13 @@
   
 }
 .cardleft {
-  width:50%;
-  height:50%;
+  height: auto;
+  width: 250px;
   text-align: justify;
   float:left;
 }
 .cardright {
-  width:10%;
-  height:10%;
+  height: auto;
+  width: 250px;
   text-align: justify;
 float:right;}
