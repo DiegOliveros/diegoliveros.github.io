@@ -112,3 +112,37 @@
   text-align: justify;
   float:right;
 }
+
+.footer { 
+  position: relative; 
+  height: 50%;
+  width: 100%;
+  display: flow-root;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://diegoliveros.github.io/SCALAPP/image/Picture5.png');
+  background-size: cover;
+}
+  .footer::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(235, 235, 235, 0.75);
+  }
+
+.footer p{
+      position: relative;
+      color: #080808;  
+      font-size: 1rem;
+      line-height: 0.9;
+      text-align: center;
+    }
+.footer h2{
+      position: relative;
+      color: #080808;         
+      line-height: 2;
+      text-align: center;
+    }
