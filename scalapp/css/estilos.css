@@ -96,19 +96,27 @@
   text-decoration: underline;
   height: max-content;
 }
-.historia p{
+
+.Ficha  {
+  /*  border: 1px solid #999;*/
+   display: inline-flex;   /* para la alineación de los elementos*/
+   width: 500px;
+   padding:20px 0px 20px 0px;
+   margin: 20px 0px 20px 0px;
+
+ }
+.Ficha p{
   width: 250px;
 }
-.cardleft {
-  height: auto;
+.Ficha img{
   width: 250px;
+  height: auto;
   text-align: justify;
+}
+.cardleft {
   float:left;
 }
 .cardright {
-  height: auto;
-  width: 250px;
-  text-align: justify;
   float:right;
 }
 
