@@ -96,6 +96,10 @@
   text-decoration: underline;
   height: max-content;
 }
+.historia p{
+  width: 250px;
+  height: 500px;
+}
 .cardleft {
   height: auto;
   width: 250px;
