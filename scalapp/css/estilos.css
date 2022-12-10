@@ -94,6 +94,7 @@
 .historia a{
   color:#dfdfdf;
   text-decoration: underline;
+  height: max-content;
 }
 .cardleft {
   height: auto;
