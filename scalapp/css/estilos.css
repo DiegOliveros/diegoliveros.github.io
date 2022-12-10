@@ -35,6 +35,40 @@
       background-color: rgba(235, 235, 235, 0.45);
     }
 
+.historia p{
+        position: relative;
+        color: #080808;  
+        font-size: 1rem;
+        line-height: 0.9;
+        text-align: center;
+      }
+.historia h2{
+        position: relative;
+        color: #080808;         
+        line-height: 2;
+        text-align: center;
+      }
+
+.historia { 
+    position: relative; 
+    height: 50%;
+    width: 100%;
+    display: flow-root;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://diegoliveros.github.io/SCALAPP/image/Picture3.png');
+    background-size: cover;
+}
+    .historia::before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      background-color: rgba(235, 235, 235, 0.45);
+    }
+
 .banner p{
         position: relative;
         color: #080808;  
@@ -49,3 +83,15 @@
         text-align: center;
       }
       
+.historia {
+  background-color: #1F2527;
+  color:aliceblue;
+  width:10%;
+  height:10%;
+  text-align: justify;
+}
+.cardleft {
+  float:left;
+}
+.cardright {
+float:right;}
