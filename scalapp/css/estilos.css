@@ -100,11 +100,12 @@
 .intermedio {
   background-color: #1F2527;
   color:aliceblue;
-  top: 0px;
+  top: 20px;
   right: 0px;
   bottom: 0px; 
   background-size: cover;
   text-align: center; 
+  padding: 40px;
 }
 .intermedio a{
   color:#dfdfdf;
