@@ -103,7 +103,8 @@
   top: 0px;
   right: 0px;
   bottom: 0px; 
-  background-size: cover; 
+  background-size: cover;
+  text-align: center; 
 }
 .intermedio a{
   color:#dfdfdf;
@@ -171,6 +172,12 @@
       position: relative;
       color: #080808;         
       line-height: 2;
+      text-align: center;
+    }
+    .footer h1{
+      position: relative;
+      color: #080808;         
+      line-height: 3;
       text-align: center;
     }
     
