@@ -97,10 +97,11 @@
         text-align: center;
       }
 .EXPLORA h1 {
-      margin-top: 0px !important;
-      color: rgb(0, 0, 0)!important;
-      font-size: 3em;
       font-family: Helvetica, Arial, sans-serif;
+      position: relative;
+      color: #080808;         
+      line-height: 3;
+      text-align: center;
 }
       
 .intermedio {
