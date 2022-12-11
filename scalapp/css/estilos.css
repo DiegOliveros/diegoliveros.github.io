@@ -4,6 +4,7 @@
 .Titulo h1 {
     margin-top: 0px !important;
     color: rgb(0, 0, 0)!important;
+    font-size: 3em;
 
 }
 
@@ -77,10 +78,15 @@
         line-height: 0.9;
         text-align: center;
       }
-.EXPLORA h2 h4 ul li{
+.EXPLORA h2 {
         position: relative;
         color: #080808;         
         line-height: 2;
+        text-align: center;
+      }
+.EXPLORA div {
+        position: relative;
+        color: #080808;         
         text-align: center;
       }
       
