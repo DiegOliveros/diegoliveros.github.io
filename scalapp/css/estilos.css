@@ -113,10 +113,10 @@
 
 .Ficha  {
   /*  border: 1px solid #999;*/
-   display: inline-flex;   /* para la alineación de los elementos*/
-   width: 100%;
    padding:20px 0px 20px 0px;
    margin: 20px auto 20px auto;
+   display: inline-flex;   /* para la alineación de los elementos*/
+   flex-direction: column;
    /* margin-left: auto;
     margin-right: auto;*/
    
