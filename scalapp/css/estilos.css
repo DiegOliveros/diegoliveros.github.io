@@ -5,6 +5,7 @@
     margin-top: 0px !important;
     color: rgb(0, 0, 0)!important;
     font-size: 3em;
+    font-family: Helvetica, Arial, sans-serif;
 
 }
 
@@ -173,3 +174,40 @@
       line-height: 2;
       text-align: center;
     }
+
+
+.Reserva { 
+      position: relative; 
+      color: #080808; 
+      height: 50%;
+      width: 100%;
+      display: flow-root;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://diegoliveros.github.io/SCALAPP/image/Picture3.png');
+      background-size: cover;
+  }
+
+.Reserva::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgba(235, 235, 235, 0.75);
+      }
+  
+.Reserva p {
+          position: relative;
+          color: #080808;  
+          font-size: 1rem;
+          line-height: 0.9;
+          text-align: center;
+        }
+.Reserva h2 {
+          position: relative;
+          color: #080808;         
+          line-height: 2;
+          text-align: center;
+        }
