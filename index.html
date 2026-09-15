@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-theme="light">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
 
-  <!-- Tipografía del manual de estilo: Cormorant Garamond + Inter -->
+  <!-- SCALAPP v2.1: estilo luminoso con pausas visuales y un único bloque oscuro de contraste -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,18 +31,6 @@
       --radius: 18px;
       --shadow: 0 18px 48px rgba(22,22,22,.08);
       --max: 1180px;
-    }
-
-    html[data-theme="dark"] {
-      --ink: #F5F5F2;
-      --graphite: #D6D7D8;
-      --muted: #A6A8AA;
-      --line: #303234;
-      --paper: #0B0B0C;
-      --surface: #171819;
-      --accent: #6D9ABB;
-      --accent-dark: #8AB0CC;
-      --shadow: 0 18px 48px rgba(0,0,0,.35);
     }
 
     * { box-sizing: border-box; }
@@ -69,6 +57,8 @@
     .skip-link:focus { top: 16px; }
 
     .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .surface-white { background: #FFFFFF; }
+    .surface-paper { background: var(--paper); }
     .section { padding: 104px 0; }
     .section-sm { padding: 74px 0; }
     .eyebrow {
@@ -92,7 +82,7 @@
     .nav-shell {
       position: sticky; top: 0; z-index: 100;
       border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
-      background: color-mix(in srgb, var(--paper) 90%, transparent);
+      background: rgba(255,255,255,.94);
       backdrop-filter: blur(16px);
     }
     .nav {
@@ -139,10 +129,7 @@
       overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow);
       background: var(--surface);
     }
-    .hero-card img { width: 100%; height: 100%; object-fit: cover; }
-    .logo-dark { display: none; }
-    html[data-theme="dark"] .logo-light { display: none; }
-    html[data-theme="dark"] .logo-dark { display: block; }
+    .hero-card img { width: 100%; height: 100%; object-fit: contain; background: #FFFFFF; }
     .hero-note {
       position: absolute; right: -16px; bottom: 24px; max-width: 230px;
       padding: 16px 18px; border-radius: 14px; border: 1px solid var(--line);
@@ -170,14 +157,11 @@
     .card p { margin-top: 12px; color: var(--muted); font-size: .92rem; }
     .card-link { margin-top: auto; padding-top: 24px; color: var(--accent); font-weight: 700; font-size: .86rem; }
 
-    .dark-band { background: var(--dark); color: #F5F5F2; position: relative; overflow: hidden; }
-    .dark-band::before {
-      content: ""; position: absolute; width: 76vw; height: 1px; left: -8vw; top: 52%;
-      background: #6D9ABB; transform: rotate(-28deg); opacity: .78;
-    }
+    .dark-band { background: var(--dark); color: #F5F5F2; }
     .dark-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 78px; align-items: center; }
     .dark-grid h2 { color: #F5F5F2; }
     .dark-grid p { color: #C6C8C9; margin-top: 24px; font-size: 1.06rem; max-width: 620px; }
+    .method-logo { width: 150px; height: 150px; object-fit: cover; margin-top: 34px; border-radius: 16px; border: 1px solid #303234; opacity: .92; }
     .steps { display: grid; gap: 14px; }
     .step { display: grid; grid-template-columns: 54px 1fr; gap: 17px; padding: 18px 0; border-bottom: 1px solid #303234; }
     .step-num { color: #6D9ABB; font-family: "Cormorant Garamond", Georgia, serif; font-size: 2rem; line-height: 1; }
@@ -197,7 +181,7 @@
     .profile-copy p { color: var(--graphite); font-size: 1.03rem; }
     .profile-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 
-    .contact { background: color-mix(in srgb, var(--surface) 76%, var(--paper)); border-top: 1px solid var(--line); }
+    .contact { background: var(--paper); border-top: 1px solid var(--line); }
     .contact-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 76px; align-items: start; }
     .contact-copy h2 { margin: 18px 0 22px; }
     .contact-copy p { color: var(--graphite); max-width: 500px; }
@@ -222,12 +206,15 @@
     .status.error { color: #9b2c2c; }
     .smallprint { margin-top: 15px; font-size: .72rem; color: var(--muted); }
 
-    footer { padding: 42px 0; border-top: 1px solid var(--line); }
+    footer { padding: 42px 0; border-top: 1px solid var(--line); background: #FFFFFF; }
     .footer-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; }
     .footer-brand { font-family: "Cormorant Garamond", Georgia, serif; font-size: 2.5rem; font-weight: 700; letter-spacing: .02em; }
     .footer-copy { color: var(--muted); font-size: .83rem; margin-top: 8px; }
     .footer-links { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 18px; font-size: .82rem; font-weight: 600; color: var(--graphite); }
     .footer-meta { grid-column: 1 / -1; padding-top: 26px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 18px; color: var(--muted); font-size: .72rem; }
+    .footer-address { max-width: 620px; text-align: right; }
+    .contact-address { margin: 18px 0 0; font-style: normal; color: var(--graphite); line-height: 1.55; }
+    .contact-address strong { color: var(--ink); }
 
     @media (max-width: 980px) {
       .hero-grid, .statement-grid, .dark-grid, .profile, .contact-grid { grid-template-columns: 1fr; }
@@ -261,6 +248,7 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-links { justify-content: flex-start; }
       .footer-meta { flex-direction: column; }
+      .footer-address { max-width: none; text-align: left; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -270,6 +258,7 @@
   </style>
 </head>
 <body>
+  <!-- SCALAPP INDEX v2.2 · imágenes en SCALAPP/image/ · septiembre 2026 -->
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <header class="nav-shell">
@@ -285,7 +274,6 @@
       </nav>
 
       <div class="nav-actions">
-        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
         <a class="btn btn-primary" href="#contacto">Hablemos ↗</a>
         <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú">☰</button>
       </div>
@@ -293,7 +281,7 @@
   </header>
 
   <main id="contenido">
-    <section class="hero" id="inicio">
+    <section class="hero surface-white" id="inicio">
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Arquitectura · transformación · innovación</span>
@@ -316,15 +304,15 @@
 
         <div class="hero-art" aria-label="Símbolo gráfico de SCALAPP">
           <div class="hero-card">
-            <img class="logo-light" src="assets/scalapp-logo-light.webp" width="900" height="900" alt="Símbolo SCALAPP: A, p y P creciendo sobre una diagonal">
-            <img class="logo-dark" src="assets/scalapp-logo-dark.webp" width="900" height="900" alt="Símbolo SCALAPP en versión de fondo oscuro">
+            <!-- Archivo esperado en SCALAPP/image/scalapp-logo-light.png -->
+            <img src="SCALAPP/image/scalapp-logo-light.png" width="1254" height="1254" alt="Símbolo SCALAPP: A, p y P creciendo sobre una diagonal">
           </div>
           <div class="hero-note"><strong>Hacemos más que software.</strong> Transformamos, innovamos y transferimos conocimiento.</div>
         </div>
       </div>
     </section>
 
-    <section class="statement section-sm" id="enfoque">
+    <section class="statement section-sm surface-paper" id="enfoque">
       <div class="wrap statement-grid">
         <div>
           <span class="eyebrow">Nuestra propuesta</span>
@@ -334,7 +322,7 @@
       </div>
     </section>
 
-    <section class="section" id="soluciones">
+    <section class="section surface-white" id="soluciones">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -379,6 +367,7 @@
           <span class="eyebrow">Cómo trabajamos</span>
           <h2>Una progresión clara, de la necesidad al aprendizaje.</h2>
           <p>El gesto diagonal del logo se convierte en método: entender, diseñar, transformar y dejar capacidad instalada.</p>
+          <img class="method-logo" src="SCALAPP/image/scalapp-logo-dark.png" width="1254" height="1254" alt="Símbolo SCALAPP en versión para fondo oscuro">
         </div>
         <div class="steps">
           <div class="step"><div class="step-num">01</div><div><h3>Comprender</h3><p>Contexto, necesidades, restricciones y objetivos reales.</p></div></div>
@@ -389,7 +378,7 @@
       </div>
     </section>
 
-    <section class="section" id="formacion">
+    <section class="section surface-paper" id="formacion">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -410,7 +399,7 @@
       </div>
     </section>
 
-    <section class="section-sm" id="perfil">
+    <section class="section-sm surface-white" id="perfil">
       <div class="wrap profile">
         <aside class="profile-card" aria-label="Perfil de Diego Iván Oliveros Acosta">
           <div class="profile-meta">SCALAPP · Arquitectura · Docencia · Consultoría</div>
@@ -430,7 +419,7 @@
       </div>
     </section>
 
-    <section class="contact section" id="contacto">
+    <section class="contact section surface-paper" id="contacto">
       <div class="wrap contact-grid">
         <div class="contact-copy">
           <span class="eyebrow">Contacto</span>
@@ -441,6 +430,12 @@
             <div>Correo: <a href="mailto:ceo@scalapp.co">ceo@scalapp.co ↗</a></div>
             <div>Instagram: <a href="https://www.instagram.com/scalapp.co/" target="_blank" rel="noopener noreferrer">@scalapp.co ↗</a></div>
           </div>
+          <address class="contact-address">
+            <strong>Sede SCALAPP</strong><br>
+            Cra. 53 #104B-35, oficina 512<br>
+            Edificio Oficinas Grupo 7, Torre 1<br>
+            Pasadena · Suba · Bogotá D.C., Colombia
+          </address>
         </div>
 
         <form class="form-card" id="contact-form" action="https://formspree.io/f/REEMPLAZA_CON_TU_FORM_ID" method="POST" novalidate>
@@ -513,37 +508,22 @@
       </div>
       <div class="footer-meta">
         <span>© <span id="year"></span> SCALAPP. Todos los derechos reservados.</span>
-        <span>Bogotá, Colombia</span>
+        <span class="footer-address">Cra. 53 #104B-35, oficina 512 · Edificio Oficinas Grupo 7, Torre 1 · Pasadena · Suba · Bogotá D.C., Colombia</span>
       </div>
     </div>
   </footer>
 
   <script>
     (() => {
-      const root = document.documentElement;
-      const themeButton = document.getElementById('theme-toggle');
       const menuButton = document.getElementById('menu-toggle');
       const navLinks = document.getElementById('nav-links');
       const form = document.getElementById('contact-form');
       const submitButton = document.getElementById('submit-btn');
       const status = document.getElementById('form-status');
-      const metaTheme = document.querySelector('meta[name="theme-color"]');
 
       document.getElementById('year').textContent = new Date().getFullYear();
 
-      const savedTheme = localStorage.getItem('scalapp-theme');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        root.dataset.theme = 'dark';
-        metaTheme.setAttribute('content', '#0B0B0C');
-      }
-
-      themeButton.addEventListener('click', () => {
-        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-        root.dataset.theme = next;
-        localStorage.setItem('scalapp-theme', next);
-        metaTheme.setAttribute('content', next === 'dark' ? '#0B0B0C' : '#F7F7F5');
-      });
-
+      // La versión 2.1 conserva una experiencia luminosa con secciones alternadas.
       menuButton.addEventListener('click', () => {
         const open = navLinks.classList.toggle('open');
         menuButton.setAttribute('aria-expanded', String(open));
