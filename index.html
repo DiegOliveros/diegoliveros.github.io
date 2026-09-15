@@ -1,170 +1,624 @@
-<!DOCTYPE html>
-              <!-- Diego Iván Oliveros Acosta -->
-              <!-- ************************** -->
-              <!-- ********* SCALAPP ******** -->
-              <!-- ************************** -->
-<html lang="en">
+<!doctype html>
+<html lang="es" data-theme="light">
 <head>
-    <title>Scalapp.co</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="https://diegoliveros.github.io/scalapp/css/estilos.css" >
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SCALAPP | Arquitectura TI, transformación digital, software, datos e IA</title>
+  <meta name="description" content="SCALAPP conecta estrategia, procesos y tecnología mediante arquitectura TI, transformación digital, ingeniería de software, datos, inteligencia artificial y formación especializada.">
+  <meta name="theme-color" content="#F7F7F5">
+  <meta property="og:title" content="SCALAPP | Escalamos capacidades digitales">
+  <meta property="og:description" content="Arquitectura TI, transformación digital, software, datos, inteligencia artificial y formación especializada.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+
+  <!-- Tipografía del manual de estilo: Cormorant Garamond + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #161616;
+      --graphite: #303030;
+      --muted: #6F7173;
+      --line: #D9DADB;
+      --paper: #F7F7F5;
+      --surface: #FFFFFF;
+      --accent: #315B7D;
+      --accent-dark: #213E56;
+      --accent-soft: #6D9ABB;
+      --dark: #0B0B0C;
+      --radius: 18px;
+      --shadow: 0 18px 48px rgba(22,22,22,.08);
+      --max: 1180px;
+    }
+
+    html[data-theme="dark"] {
+      --ink: #F5F5F2;
+      --graphite: #D6D7D8;
+      --muted: #A6A8AA;
+      --line: #303234;
+      --paper: #0B0B0C;
+      --surface: #171819;
+      --accent: #6D9ABB;
+      --accent-dark: #8AB0CC;
+      --shadow: 0 18px 48px rgba(0,0,0,.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; }
+    :focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 3px; }
+
+    .skip-link {
+      position: fixed; left: 16px; top: -80px; z-index: 1000;
+      background: var(--ink); color: var(--paper); padding: 10px 14px; border-radius: 8px;
+    }
+    .skip-link:focus { top: 16px; }
+
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .section { padding: 104px 0; }
+    .section-sm { padding: 74px 0; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--accent); font-size: .77rem; line-height: 1;
+      font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    .display,
+    h1, h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      letter-spacing: -.035em;
+      line-height: .98;
+      margin: 0;
+    }
+    h1 { font-size: clamp(3.35rem, 7.3vw, 6.8rem); font-weight: 600; }
+    h2 { font-size: clamp(2.65rem, 5vw, 4.7rem); font-weight: 600; }
+    h3 { margin: 0; font-size: 1.15rem; line-height: 1.35; }
+    p { margin: 0; }
+
+    .nav-shell {
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+      background: color-mix(in srgb, var(--paper) 90%, transparent);
+      backdrop-filter: blur(16px);
+    }
+    .nav {
+      min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 26px;
+    }
+    .brand { display: inline-flex; align-items: baseline; gap: 10px; font-weight: 800; letter-spacing: .12em; }
+    .brand::after { content: "↗"; color: var(--accent); font-size: 1rem; transform: translateY(-2px); }
+    .nav-links { display: flex; align-items: center; gap: 26px; font-size: .9rem; font-weight: 600; }
+    .nav-links a { color: var(--graphite); transition: color .2s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
+    .icon-btn {
+      width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 999px;
+      color: var(--ink); background: var(--surface); cursor: pointer; display: grid; place-items: center;
+    }
+    .menu-btn { display: none; }
+
+    .btn {
+      display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px;
+      padding: 0 20px; border: 1px solid transparent; border-radius: 999px;
+      font-weight: 700; font-size: .91rem; cursor: pointer; transition: .2s ease;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .btn-secondary { border-color: var(--line); background: var(--surface); color: var(--ink); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    .hero { padding: clamp(70px, 10vw, 132px) 0 90px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.13fr .87fr; align-items: center; gap: 60px; }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero h1 { max-width: 850px; margin-top: 22px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-lead { max-width: 720px; margin-top: 28px; font-size: clamp(1.08rem, 1.8vw, 1.28rem); color: var(--graphite); }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 30px; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; color: var(--muted); font-size: .78rem; font-weight: 600; background: color-mix(in srgb, var(--surface) 74%, transparent); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .hero-art { position: relative; min-height: 610px; display: grid; place-items: center; }
+    .hero-art::before {
+      content: ""; position: absolute; width: 130%; height: 1px; background: var(--accent-soft);
+      transform: rotate(-43deg); opacity: .34;
+    }
+    .hero-card {
+      position: relative; width: min(100%, 520px); aspect-ratio: 1; border-radius: 28px;
+      overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow);
+      background: var(--surface);
+    }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; }
+    .logo-dark { display: none; }
+    html[data-theme="dark"] .logo-light { display: none; }
+    html[data-theme="dark"] .logo-dark { display: block; }
+    .hero-note {
+      position: absolute; right: -16px; bottom: 24px; max-width: 230px;
+      padding: 16px 18px; border-radius: 14px; border: 1px solid var(--line);
+      background: var(--surface); box-shadow: var(--shadow); font-size: .79rem; color: var(--muted);
+    }
+    .hero-note strong { color: var(--ink); display: block; margin-bottom: 3px; }
+
+    .statement { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .statement-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 70px; align-items: end; }
+    .statement h2 { max-width: 510px; }
+    .statement-copy { font-size: 1.12rem; color: var(--graphite); max-width: 670px; }
+    .statement-copy strong { color: var(--ink); }
+
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 46px; }
+    .section-head h2 { max-width: 720px; }
+    .section-head p { max-width: 460px; color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card {
+      min-height: 330px; padding: 28px; border-radius: var(--radius); border: 1px solid var(--line);
+      background: var(--surface); display: flex; flex-direction: column; transition: .25s ease;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+    .card-num { color: var(--accent); font-family: "Cormorant Garamond", Georgia, serif; font-size: 2.2rem; font-weight: 700; line-height: 1; }
+    .card h3 { margin-top: 46px; font-size: 1.25rem; }
+    .card p { margin-top: 12px; color: var(--muted); font-size: .92rem; }
+    .card-link { margin-top: auto; padding-top: 24px; color: var(--accent); font-weight: 700; font-size: .86rem; }
+
+    .dark-band { background: var(--dark); color: #F5F5F2; position: relative; overflow: hidden; }
+    .dark-band::before {
+      content: ""; position: absolute; width: 76vw; height: 1px; left: -8vw; top: 52%;
+      background: #6D9ABB; transform: rotate(-28deg); opacity: .78;
+    }
+    .dark-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 78px; align-items: center; }
+    .dark-grid h2 { color: #F5F5F2; }
+    .dark-grid p { color: #C6C8C9; margin-top: 24px; font-size: 1.06rem; max-width: 620px; }
+    .steps { display: grid; gap: 14px; }
+    .step { display: grid; grid-template-columns: 54px 1fr; gap: 17px; padding: 18px 0; border-bottom: 1px solid #303234; }
+    .step-num { color: #6D9ABB; font-family: "Cormorant Garamond", Georgia, serif; font-size: 2rem; line-height: 1; }
+    .step h3 { color: #F5F5F2; font-size: 1.03rem; }
+    .step p { margin-top: 4px; font-size: .88rem; }
+
+    .topics { display: flex; flex-wrap: wrap; gap: 10px; }
+    .topic { padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); font-weight: 600; font-size: .86rem; }
+    .topic span { color: var(--accent); margin-left: 8px; }
+
+    .profile { display: grid; grid-template-columns: .8fr 1.2fr; gap: 76px; align-items: center; }
+    .profile-card { border-radius: 24px; background: var(--ink); color: var(--paper); min-height: 460px; padding: 44px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; position: relative; }
+    .profile-card::after { content: "↗"; position: absolute; right: 28px; top: 20px; font-family: "Cormorant Garamond", serif; font-size: 8rem; color: var(--accent-soft); opacity: .22; }
+    .profile-card strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: 2.8rem; line-height: 1; position: relative; z-index: 2; }
+    .profile-meta { font-size: .83rem; color: color-mix(in srgb, var(--paper) 66%, transparent); position: relative; z-index: 2; }
+    .profile-copy h2 { margin: 18px 0 26px; }
+    .profile-copy p { color: var(--graphite); font-size: 1.03rem; }
+    .profile-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    .contact { background: color-mix(in srgb, var(--surface) 76%, var(--paper)); border-top: 1px solid var(--line); }
+    .contact-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 76px; align-items: start; }
+    .contact-copy h2 { margin: 18px 0 22px; }
+    .contact-copy p { color: var(--graphite); max-width: 500px; }
+    .contact-list { margin-top: 32px; display: grid; gap: 11px; font-size: .9rem; }
+    .contact-list a { color: var(--accent); font-weight: 700; }
+    .form-card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 30px; box-shadow: var(--shadow); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: .78rem; font-weight: 700; color: var(--graphite); }
+    input, select, textarea {
+      width: 100%; border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+      border-radius: 12px; padding: 13px 14px; outline: none; transition: .2s ease;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent); }
+    textarea { min-height: 150px; resize: vertical; }
+    .consent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; font-size: .76rem; color: var(--muted); }
+    .consent input { width: 18px; height: 18px; flex: 0 0 18px; margin-top: 2px; }
+    .form-actions { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 4px; }
+    .status { min-height: 24px; color: var(--muted); font-size: .8rem; }
+    .status.success { color: #2f6d46; }
+    .status.error { color: #9b2c2c; }
+    .smallprint { margin-top: 15px; font-size: .72rem; color: var(--muted); }
+
+    footer { padding: 42px 0; border-top: 1px solid var(--line); }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; }
+    .footer-brand { font-family: "Cormorant Garamond", Georgia, serif; font-size: 2.5rem; font-weight: 700; letter-spacing: .02em; }
+    .footer-copy { color: var(--muted); font-size: .83rem; margin-top: 8px; }
+    .footer-links { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 18px; font-size: .82rem; font-weight: 600; color: var(--graphite); }
+    .footer-meta { grid-column: 1 / -1; padding-top: 26px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 18px; color: var(--muted); font-size: .72rem; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .statement-grid, .dark-grid, .profile, .contact-grid { grid-template-columns: 1fr; }
+      .hero-art { min-height: auto; }
+      .hero-card { max-width: 560px; margin-inline: auto; }
+      .hero-note { right: 10px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { position: fixed; inset: 79px 0 auto 0; padding: 22px 20px 28px; background: var(--paper); border-bottom: 1px solid var(--line); display: none; flex-direction: column; align-items: flex-start; }
+      .nav-links.open { display: flex; }
+      .nav-actions .btn { display: none; }
+      .menu-btn { display: grid; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 680px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .section { padding: 78px 0; }
+      .section-sm { padding: 58px 0; }
+      .nav { min-height: 70px; }
+      .nav-links { inset: 71px 0 auto 0; }
+      .hero { padding-top: 64px; }
+      .hero-grid { gap: 44px; }
+      .hero-card { border-radius: 20px; }
+      .hero-note { position: relative; right: auto; bottom: auto; max-width: none; margin: 12px auto 0; }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: 275px; }
+      .profile-card { min-height: 350px; padding: 30px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full, .consent, .form-actions { grid-column: auto; }
+      .form-actions { align-items: stretch; flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { justify-content: flex-start; }
+      .footer-meta { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
 </head>
 <body>
-    <div class="Titulo">
-        <p>
-            <img class="Scalapp" src="https://diegoliveros.github.io/scalapp/image/Picture1.png" alt="@scalapp.co">
-        </p>
-    </div>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <div class="banner">
-        <h1 class="Titulo">Escala tu negocio, haz realidad tu innovación, mejora las capacidades TI de tu equipo.</h1>
-            <p>Nosotros hacemos más que software:</p>
-            <p>Transformamos empresas y vidas, creamos experiencias de usuario.</p>
-            <p>Scalapp está construido con la filosofía de que toda persona y empresa es especial, y llevamos ese pensamiento en todo lo que emprendemos.</p>
-            <p><a href="mailto:ceo@scalapp.co"><b>Ver Menú</b></a></p>
+  <header class="nav-shell">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="SCALAPP, ir al inicio">SCALAPP</a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+        <a href="#soluciones">Soluciones</a>
+        <a href="#enfoque">Enfoque</a>
+        <a href="#formacion">Formación</a>
+        <a href="#perfil">Diego Oliveros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
+        <a class="btn btn-primary" href="#contacto">Hablemos ↗</a>
+        <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú">☰</button>
+      </div>
     </div>
-    
-    <div>
-    <div class="intermedio">
-        <h1>Bienvenido a Scalapp, esta es </h1><h2>NUESTRA HISTORIA:</h2>
-        <div class="Ficha">
-            <img src="https://diegoliveros.github.io/SCALAPP/image/Picture7.png" alt="Join" class="cardright">
-            <p>El Ingeniero, Profesor y consultor
-            <a href="https://diegoliveros.github.io/DIOA/index.html" target="_blank"><b>Diego Iván Oliveros Acosta</b></a> decidió
-            dedicar parte de su vida a la creación de un ecosistema de
-            desarrollo de innovaciones basadas en TI, un lugar donde
-            cualquier persona, con las ganas de aprender o transformar su
-            negocio, tuviese un espacio agradable, la tutoría y apoyo de los
-            mejores, para desarrollar sus ideas y escalar sus negocios.</p>   
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Arquitectura · transformación · innovación</span>
+          <h1>Escalamos <em>capacidades digitales</em>.</h1>
+          <p class="hero-lead">Conectamos estrategia, procesos y tecnología para convertir retos organizacionales en soluciones sostenibles de arquitectura TI, software, datos e inteligencia artificial.</p>
+
+          <div class="hero-tags" aria-label="Áreas de trabajo">
+            <span class="tag">Arquitectura TI</span>
+            <span class="tag">Transformación digital</span>
+            <span class="tag">Ingeniería de software</span>
+            <span class="tag">Datos e IA</span>
+            <span class="tag">Formación</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#soluciones">Conoce nuestras soluciones ↗</a>
+            <a class="btn btn-secondary" href="#contacto">Cuéntanos tu reto</a>
+          </div>
         </div>
-        
-        <div class="Ficha">
-            <img src="https://diegoliveros.github.io/SCALAPP/image/Picture8.png" alt="work" class="cardleft">
-            <p><strong>Las tres líneas de nuestra especialidad son:</strong>
-                <br>
-                <br>Automatización de procesos,
-                <br>Transformación empresarial, 
-                <br>Formación de talento TI. 
-                <br>
-                <br>Estamos muy orgullosos
-            de mejorar y potenciar sus empresas, en hacer realidad sus
-            innovaciones.</p>
+
+        <div class="hero-art" aria-label="Símbolo gráfico de SCALAPP">
+          <div class="hero-card">
+            <img class="logo-light" src="assets/scalapp-logo-light.webp" width="900" height="900" alt="Símbolo SCALAPP: A, p y P creciendo sobre una diagonal">
+            <img class="logo-dark" src="assets/scalapp-logo-dark.webp" width="900" height="900" alt="Símbolo SCALAPP en versión de fondo oscuro">
+          </div>
+          <div class="hero-note"><strong>Hacemos más que software.</strong> Transformamos, innovamos y transferimos conocimiento.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement section-sm" id="enfoque">
+      <div class="wrap statement-grid">
+        <div>
+          <span class="eyebrow">Nuestra propuesta</span>
+          <h2>La tecnología solo escala cuando crea capacidad.</h2>
+        </div>
+        <p class="statement-copy">SCALAPP nace como un ecosistema para desarrollar innovación basada en TI. Nuestro enfoque combina <strong>transformación empresarial, automatización, desarrollo de soluciones y formación especializada</strong>, con una idea simple: la tecnología debe fortalecer a las personas y a las organizaciones, no sustituir su propósito.</p>
+      </div>
+    </section>
+
+    <section class="section" id="soluciones">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Soluciones</span>
+            <h2>De la estrategia a la implementación.</h2>
+          </div>
+          <p>Una oferta más clara y contemporánea: menos listas de siglas, más foco en los problemas que una organización necesita resolver.</p>
         </div>
 
-    </div> <!-- ********* intermedio *************** -->
-
-    <div class="EXPLORA">
-        <h1>EXPLORA Nuestras Soluciones</h1>
-        <h2>No esperes a que tu negocio sea remplazado por la tecnología.</h2>
-        <h2>¡Usa la tecnología para activar y hacer crecer tu negocio!</h2>
-        <p><a>Ver portafolio</a></p>
-    </div> <!-- ********* EXPLORA *************** -->
-
-
-        <div class="intermedio">
-        <h1>Nuestras líneas empresariales</h1>
-        
-            <h4>Servicios y consultoría de Tecnologías de la Información:</h4>
-            <ul>
-                <b>Transformación y diseño Empresarial.</b>
-                <br>
-                <li>TOGAF, SOA, ITIL, COBIT, PMP, CANVAS BM, BPMN</li>
-                <li>Auditoría de calidad bajo estándares</li>
-                <li>ISO 9001, OHSAS 18001, ISO 14001</li>
-                <li>Normas de Normas de Calidad con las que debe contar tu empresa.</li>
-            </ul>
-
-            <ul> <b>Desarrollo de software a la medida.</b>
-                <br>
-            <li>Sistemas de Información</li>
-            <li>Sitios Web – Páginas web</li>
-            <li>Manejo de Redes Sociales</li>
-            </ul>
-
-            <ul> <b>Capacitación en marcos, guías y Metodologías</b>
-                <br>
-                <li>Metodologías desarrollo de software: RUP, XP</li>
-                <li>Marcos y guías: Pmbok, SCRUM, TOGAF</li>
-                <li>Estándares: PMP, ISO 9001, OHSAS 18001, ISO 14001</li>
-                <li>Lo ágil y tradicional a tu alcance.</li>    
-            </ul>
+        <div class="cards">
+          <article class="card">
+            <div class="card-num">01</div>
+            <h3>Arquitectura empresarial y TI</h3>
+            <p>Alineación de estrategia, capacidades, procesos, información y tecnología. Gobierno, arquitectura de soluciones y hojas de ruta para evolucionar con criterio.</p>
+            <a class="card-link" href="#contacto">Explorar esta línea ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-num">02</div>
+            <h3>Ingeniería de software</h3>
+            <p>Diseño y modernización de soluciones, sistemas de información, integración y experiencias digitales pensadas desde la arquitectura y la calidad.</p>
+            <a class="card-link" href="#contacto">Explorar esta línea ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-num">03</div>
+            <h3>Datos, automatización e IA</h3>
+            <p>Automatización de procesos, analítica, uso responsable de inteligencia artificial y diseño de capacidades que convierten datos en decisiones.</p>
+            <a class="card-link" href="#contacto">Explorar esta línea ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-num">04</div>
+            <h3>Formación y transferencia</h3>
+            <p>Charlas, talleres y experiencias de aprendizaje en arquitectura, transformación digital, software, metodologías, datos e inteligencia artificial.</p>
+            <a class="card-link" href="#formacion">Ver temas ↗</a>
+          </article>
         </div>
-   
+      </div>
+    </section>
 
-<div class="Reserva">
-    <h2>¡Reserva espacios de coworking!</h2>
-    <p>Para reservar un espacio, llámanos 
-    <a rel="stylesheet" href="https://api.whatsapp.com/send?phone=573156040100">
-        (+57) 3156040100</a> 
-    </p>
-    <p>También puedes usar el formulario de registro, que aparece a continuación</p> 
-    <p>¡Nos pondremos en contacto contigo!</p>
-</div>
+    <section class="dark-band section">
+      <div class="wrap dark-grid">
+        <div>
+          <span class="eyebrow">Cómo trabajamos</span>
+          <h2>Una progresión clara, de la necesidad al aprendizaje.</h2>
+          <p>El gesto diagonal del logo se convierte en método: entender, diseñar, transformar y dejar capacidad instalada.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-num">01</div><div><h3>Comprender</h3><p>Contexto, necesidades, restricciones y objetivos reales.</p></div></div>
+          <div class="step"><div class="step-num">02</div><div><h3>Diseñar</h3><p>Arquitectura, alternativas, prioridades y ruta de implementación.</p></div></div>
+          <div class="step"><div class="step-num">03</div><div><h3>Transformar</h3><p>Soluciones, automatización, integración y cambio organizacional.</p></div></div>
+          <div class="step"><div class="step-num">04</div><div><h3>Transferir</h3><p>Conocimiento y herramientas para que la capacidad permanezca en la organización.</p></div></div>
+        </div>
+      </div>
+    </section>
 
-<div class="intermedio">
-<form action="action_page.php">
-    <div class="container">
-      <h3>Formulario de registro:</h3>
-      <p>Por favor, rellena este formulario para crear una cuenta.</p>
-      <hr>
-  
-      <label for="email"><b>Correo Electrónico</b></label>
-      <input type="text" placeholder="Enter Email" name="email" id="email" required>
-  <br>
-      <label for="psw"><b>Contraseña</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-      <br>
-      <label for="psw-repeat"><b>Repite la contraseña</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-      <hr>
-  
-      <p>Al crear una cuenta, usted acepta nuestros<a href="#">Términos y Privacidad</a>.</p>
-      <button type="submit" class="registerbtn">Registrar</button>
+    <section class="section" id="formacion">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Conferencias y formación</span>
+            <h2>Ideas complejas, explicadas para generar acción.</h2>
+          </div>
+          <p>Los contenidos pueden adaptarse al sector, nivel de profundidad, audiencia y objetivo de cada organización.</p>
+        </div>
+        <div class="topics" aria-label="Temas de formación">
+          <div class="topic">IA generativa aplicada <span>↗</span></div>
+          <div class="topic">Hiperautomatización de procesos <span>↗</span></div>
+          <div class="topic">Arquitectura y transformación digital <span>↗</span></div>
+          <div class="topic">Open Finance y ecosistemas digitales <span>↗</span></div>
+          <div class="topic">SuperApps y modelos de plataforma <span>↗</span></div>
+          <div class="topic">Ingeniería y calidad de software <span>↗</span></div>
+          <div class="topic">Datos, integración y APIs <span>↗</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" id="perfil">
+      <div class="wrap profile">
+        <aside class="profile-card" aria-label="Perfil de Diego Iván Oliveros Acosta">
+          <div class="profile-meta">SCALAPP · Arquitectura · Docencia · Consultoría</div>
+          <strong>Diego Iván<br>Oliveros Acosta</strong>
+          <div class="profile-meta">Ingeniería de Sistemas · Ingeniería Electrónica · Arquitecturas de TI</div>
+        </aside>
+        <div class="profile-copy">
+          <span class="eyebrow">Fundador y speaker</span>
+          <h2>Tecnología con criterio, experiencia y capacidad de enseñar.</h2>
+          <p>Ingeniero de Sistemas e Ingeniero Electrónico, especialista en herramientas virtuales para la educación y magíster en Arquitecturas de Tecnologías de la Información. Docente y consultor, enfocado en crear ecosistemas de desarrollo e innovación y en convertir conocimiento tecnológico en soluciones y aprendizaje aplicable.</p>
+          <div class="profile-actions">
+            <a class="btn btn-primary" href="https://diegoliveros.github.io/DIOA/index.html" target="_blank" rel="noopener noreferrer">Perfil profesional ↗</a>
+            <a class="btn btn-secondary" href="https://diegoliveros.github.io/DIOA/PROYECTOS/proyectos.html" target="_blank" rel="noopener noreferrer">Ver proyectos</a>
+            <a class="btn btn-secondary" href="https://arquitect-it.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog Arquitectura TI</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contacto">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">Contacto</span>
+          <h2>¿Tienes un reto tecnológico que quieras convertir en una oportunidad?</h2>
+          <p>Cuéntanos qué necesitas. Podemos conversar sobre arquitectura TI, transformación digital, software, datos, inteligencia artificial o formación para tu equipo.</p>
+          <div class="contact-list">
+            <div>WhatsApp: <a href="https://wa.me/573156040100?text=Hola%20Scalapp%2C%20quiero%20conversar%20sobre%20un%20reto%20tecnol%C3%B3gico." target="_blank" rel="noopener noreferrer">+57 315 604 0100 ↗</a></div>
+            <div>Correo: <a href="mailto:ceo@scalapp.co">ceo@scalapp.co ↗</a></div>
+            <div>Instagram: <a href="https://www.instagram.com/scalapp.co/" target="_blank" rel="noopener noreferrer">@scalapp.co ↗</a></div>
+          </div>
+        </div>
+
+        <form class="form-card" id="contact-form" action="https://formspree.io/f/REEMPLAZA_CON_TU_FORM_ID" method="POST" novalidate>
+          <!--
+            FORMULARIO:
+            1) Crea un formulario en Formspree.
+            2) Reemplaza REEMPLAZA_CON_TU_FORM_ID en el atributo action de arriba.
+            3) Mientras no se configure, el JavaScript usa un correo (mailto:) como respaldo.
+          -->
+          <div class="form-grid">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@empresa.com" required>
+            </div>
+            <div class="field">
+              <label for="organizacion">Organización</label>
+              <input id="organizacion" name="organizacion" type="text" autocomplete="organization" placeholder="Empresa o institución">
+            </div>
+            <div class="field">
+              <label for="area">¿En qué podemos ayudarte?</label>
+              <select id="area" name="area" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option>Arquitectura empresarial y TI</option>
+                <option>Transformación digital</option>
+                <option>Ingeniería de software</option>
+                <option>Datos, automatización e IA</option>
+                <option>Capacitación o conferencia</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="mensaje">Cuéntanos sobre tu reto</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Contexto, objetivo y cómo podemos ayudarte…" required></textarea>
+            </div>
+
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+            <input type="hidden" name="_subject" value="Nuevo contacto desde SCALAPP">
+
+            <label class="consent" for="consentimiento">
+              <input id="consentimiento" type="checkbox" required>
+              <span>Autorizo el uso de los datos enviados exclusivamente para responder a esta solicitud de contacto.</span>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" id="submit-btn" type="submit">Enviar mensaje ↗</button>
+              <div class="status" id="form-status" role="status" aria-live="polite"></div>
+            </div>
+          </div>
+          <p class="smallprint">No solicitamos contraseñas ni datos sensibles. Para envío directo sin abrir tu cliente de correo, configura el ID de Formspree indicado en el código.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <div class="footer-brand">SCALAPP</div>
+        <p class="footer-copy">Hacemos más que software. Transformación · innovación · formación.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.facebook.com/Scalapp.co" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/scalapp.co/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/573156040100" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="#inicio">Volver arriba ↑</a>
+      </div>
+      <div class="footer-meta">
+        <span>© <span id="year"></span> SCALAPP. Todos los derechos reservados.</span>
+        <span>Bogotá, Colombia</span>
+      </div>
     </div>
-  
-    <div class="container signin">
-      <p>¿Ya tienes una cuenta? <a href="#">Sign in</a>.</p>
-    </div>
-  </form>
-</div>
-<div class="footer">
-    
-<h1>SCALAPP</h1>
-<p>Nuestra especialidad es: la gestión de procesos, la transformación empresarial y la formación de
-talento TI.</p>
-<p> Estamos muy orgullosos de mejorar y potenciar tu empresa, de hacer realidad tus
-innovaciones.<p>
-    <p>
-<a rel="stylesheet" href="https://www.facebook.com/Scalapp.co"> Facebook</a>/
-<a rel="stylesheet" href="https://www.instagram.com/scalapp.co/"> Instagram</a>/
-<a rel="stylesheet" href="https://api.whatsapp.com/send?phone=573156040100"> Whatsapp</a></p>
+  </footer>
 
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeButton = document.getElementById('theme-toggle');
+      const menuButton = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      const form = document.getElementById('contact-form');
+      const submitButton = document.getElementById('submit-btn');
+      const status = document.getElementById('form-status');
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
 
-    <b>Horarios de atención</b>
-    <h5>Lunes a viernes:</h5>
-   <p>9:00 am – 5:00 pm</p>
- <h5>Sábados:</h5>
- <p>10:00 am – 3:00 pm</p>
-    <h5>Ubicación</h5>
- <p>Tv 4 No 67 A 66</p>
-   <p> Chapinero Alto,
-    Bogotá Colombia</p>
-    <p><b>ZIP Code 110231</b></p>
-    <h5>Reservas</h5>
-   <p>  <a rel="stylesheet" href="https://api.whatsapp.com/send?phone=573156040100">
-    (+57) 3156040100</a> </p>
-    <p> <a href="mailto:ceo@scalapp.co" class="icon-mail">coworking@scalapp.co</a>
-    <a href="ventas@scalapp.co" class="icon-mail">ventas@scalapp.co</a></p>
-</div>
-</div>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const savedTheme = localStorage.getItem('scalapp-theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        root.dataset.theme = 'dark';
+        metaTheme.setAttribute('content', '#0B0B0C');
+      }
+
+      themeButton.addEventListener('click', () => {
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        localStorage.setItem('scalapp-theme', next);
+        metaTheme.setAttribute('content', next === 'dark' ? '#0B0B0C' : '#F7F7F5');
+      });
+
+      menuButton.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.textContent = open ? '×' : '☰';
+        document.body.classList.toggle('menu-open', open);
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
+        document.body.classList.remove('menu-open');
+      }));
+
+      function fallbackMailto(data) {
+        const subject = encodeURIComponent('Contacto desde SCALAPP - ' + (data.get('area') || 'Consulta'));
+        const body = encodeURIComponent(
+          `Nombre: ${data.get('nombre') || ''}\n` +
+          `Correo: ${data.get('email') || ''}\n` +
+          `Organización: ${data.get('organizacion') || ''}\n` +
+          `Área: ${data.get('area') || ''}\n\n` +
+          `Mensaje:\n${data.get('mensaje') || ''}`
+        );
+        window.location.href = `mailto:ceo@scalapp.co?subject=${subject}&body=${body}`;
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        status.className = 'status';
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          status.textContent = 'Revisa los campos obligatorios.';
+          status.classList.add('error');
+          return;
+        }
+
+        const data = new FormData(form);
+        const endpoint = form.getAttribute('action');
+        const configured = endpoint && !endpoint.includes('REEMPLAZA_CON_TU_FORM_ID');
+
+        if (!configured) {
+          status.textContent = 'Abriendo tu aplicación de correo…';
+          fallbackMailto(data);
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando…';
+        status.textContent = '';
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            form.reset();
+            status.textContent = 'Mensaje enviado. Gracias; pronto estaremos en contacto.';
+            status.classList.add('success');
+          } else {
+            status.textContent = 'No fue posible enviar el mensaje. Puedes escribirnos por WhatsApp o correo.';
+            status.classList.add('error');
+          }
+        } catch (error) {
+          status.textContent = 'Hubo un problema de conexión. Puedes usar WhatsApp o correo.';
+          status.classList.add('error');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Enviar mensaje ↗';
+        }
+      });
+    })();
+  </script>
 </body>
-<div class="intermedio">
-<p>Powered by <a class="footer-lin" href="http://scalapp.co/">Scalapp</a>
-    ℗ © @Scalapp.co 2022. Todos Los Derechos Reservados / All Rights Reserved</p>
-</div>
-    </html>
-
+</html>
